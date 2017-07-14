@@ -78,11 +78,35 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.IdentityModel.Logging, Version=1.1.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.IdentityModel.Logging.1.1.2\lib\net451\Microsoft.IdentityModel.Logging.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.IdentityModel.Tokens, Version=5.1.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.IdentityModel.Tokens.5.1.2\lib\net451\Microsoft.IdentityModel.Tokens.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="RestSharp, Version=104.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\RestSharp.104.0\lib\net4\RestSharp.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.IdentityModel.Tokens.Jwt, Version=5.1.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IdentityModel.Tokens.Jwt.5.1.2\lib\net451\System.IdentityModel.Tokens.Jwt.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System.Security" />
+    <Reference Include="System.Web.Cors, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Cors.5.2.3\lib\net45\System.Web.Cors.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -90,6 +114,10 @@
     <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Web" />
     <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Http.Cors, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Cors.5.2.3\lib\net45\System.Web.Http.Cors.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System.Web.Routing" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Configuration" />
@@ -97,9 +125,6 @@
     <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <Private>True</Private>
       <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
-    </Reference>
-    <Reference Include="Newtonsoft.Json">
-      <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="System.Net.Http">
     </Reference>
@@ -142,6 +167,18 @@
       <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
     </Reference>
     <Reference Include="System.Xml.Linq" />
+    <Reference Include="Twilio, Version=5.5.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Twilio.5.5.2\lib\net451\Twilio.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Twilio.Twiml, Version=3.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Twilio.TwiML.3.0\lib\3.5\Twilio.Twiml.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Twilio.WebApi, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Twilio.WebApi.1.0.0.0\lib\net45\Twilio.WebApi.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="WebGrease">
       <Private>True</Private>
       <HintPath>..\packages\WebGrease.1.5.2\lib\WebGrease.dll</HintPath>
@@ -238,6 +275,8 @@
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\SmsController.cs" />
+    <Compile Include="Controllers\StudentController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -245,27 +284,34 @@
     <Compile Include="Models\AccountBindingModels.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\Student.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Providers\ApplicationOAuthProvider.cs" />
     <Compile Include="Results\ChallengeResult.cs" />
-    <Compile Include="SchoolDBEntity.Context.cs">
+    <Compile Include="SchoolDBContext.cs" />
+    <Compile Include="SchoolDBEntities.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>SchoolDBEntity.Context.tt</DependentUpon>
+      <DependentUpon>SchoolDBEntities.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="SchoolDBEntity.cs">
+    <Compile Include="SchoolDBEntities.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>SchoolDBEntity.tt</DependentUpon>
+      <DependentUpon>SchoolDBEntities.tt</DependentUpon>
     </Compile>
-    <Compile Include="SchoolDBEntity.Designer.cs">
+    <Compile Include="SchoolDBEntities.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>SchoolDBEntity.edmx</DependentUpon>
+      <DependentUpon>SchoolDBEntities.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Services\SMSService.cs" />
+    <Compile Include="Services\StudentService.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="Student.cs">
+      <DependentUpon>SchoolDBEntities.tt</DependentUpon>
+    </Compile>
     <Compile Include="User.cs">
-      <DependentUpon>SchoolDBEntity.tt</DependentUpon>
+      <DependentUpon>SchoolDBEntities.tt</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -275,15 +321,15 @@
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
-    <Content Include="SchoolDBEntity.Context.tt">
+    <Content Include="SchoolDBEntities.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>SchoolDBEntity.edmx</DependentUpon>
-      <LastGenOutput>SchoolDBEntity.Context.cs</LastGenOutput>
+      <DependentUpon>SchoolDBEntities.edmx</DependentUpon>
+      <LastGenOutput>SchoolDBEntities.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="SchoolDBEntity.tt">
+    <Content Include="SchoolDBEntities.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>SchoolDBEntity.edmx</DependentUpon>
-      <LastGenOutput>SchoolDBEntity.cs</LastGenOutput>
+      <DependentUpon>SchoolDBEntities.edmx</DependentUpon>
+      <LastGenOutput>SchoolDBEntities.cs</LastGenOutput>
     </Content>
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -309,12 +355,13 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <EntityDeploy Include="SchoolDBEntity.edmx">
+    <None Include="Properties\PublishProfiles\schoolAPI.pubxml" />
+    <EntityDeploy Include="SchoolDBEntities.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>SchoolDBEntity.Designer.cs</LastGenOutput>
+      <LastGenOutput>SchoolDBEntities.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <Content Include="SchoolDBEntity.edmx.diagram">
-      <DependentUpon>SchoolDBEntity.edmx</DependentUpon>
+    <Content Include="SchoolDBEntities.edmx.diagram">
+      <DependentUpon>SchoolDBEntities.edmx</DependentUpon>
     </Content>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
@@ -327,7 +374,9 @@
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>

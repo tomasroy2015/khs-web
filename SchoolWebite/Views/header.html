@@ -1,0 +1,40 @@
+    <link href='http://fonts.googleapis.com/css?family=PT+Sans' rel='stylesheet' type='text/css'>
+    <link href="http://fonts.googleapis.com/css?family=Raleway" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="assets/css/font-awesome.min.css">
+    <link rel="stylesheet" href="assets/css/animate.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">      
+<nav id="navbar-section" class="navbar navbar-default navbar-static-top navbar-sticky" role="navigation">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+
+            <a class="navbar-brand wow fadeInDownBig" href="#" ng-click="clickForRegister('')"><img class="office-logo" src="assets/img/slider/jubilee_new.png"></a>      
+        </div>
+
+        <div id="navbar-spy" class="collapse navbar-collapse navbar-responsive-collapse">
+            <ul class="nav navbar-nav pull-right">
+                <li ng-class="{active:isHome}">
+                    <a href="#" ng-click="clickForRegister('')">প্রথম পাতা </a>
+                </li>
+                <li ng-class="{active:isAbout}">
+                    <a href="#" ng-click="clickForRegister('about')">বিদ্যালয় সম্পর্কে</a>
+                </li>
+                <li ng-class="{active:isContact}">
+                    <a href="#" ng-click="clickForRegister('contact')"><span>যোগাযোগ</span></a>
+                </li>
+            </ul>         
+        </div>
+    </div>
+</nav>
+  <script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="js/wow.min.js"></script>
+    <script>
+      new WOW().init();
+    </script>

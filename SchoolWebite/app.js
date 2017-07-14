@@ -1,17 +1,27 @@
 /**
  * Created by Tomas on 25-Jun-16.
  */
-var schoolApp = angular.module("schoolApp",["ngRoute","ngResource","ngAnimate","ngSanitize", "ngCookies","smart-table"]);
+var schoolApp = angular.module("schoolApp",[
+                "ui.bootstrap",
+                "ngRoute",
+                "ngResource",
+                "ngAnimate",
+                "ngSanitize",
+                "ngCookies", 
+                "ui.bootstrap",
+                "smart-table"
+              ]);
 schoolApp.config(function($routeProvider,$locationProvider){
     $locationProvider.html5Mode(true);
-    $routeProvider.when('/',{templateUrl: 'home.html',controller: 'schoolController'}).
-    when('/registration',{templateUrl: 'registration.html',controller: 'schoolController'})
+    $routeProvider.when('/',{templateUrl: 'Views/home.html',controller: 'schoolController'}).
+    when('/registration',{templateUrl: 'Views/registration.html',controller: 'schoolController'}).
+    when('/about',{templateUrl: 'Views/about.html',controller: 'schoolController'}).
+    when('/contact',{templateUrl: 'Views/contact.html',controller: 'schoolController'})
 });
 /* Application Constants
  ======================================================*/
 schoolApp.constant("appSettings", {
-    API_BASE_URL : 'http://localhost:50622/',
-    //API_BASE_URL: 'https://api.gbsextranet.com/',
+    API_BASE_URL : 'http://localhost:52780/',
     APPLICATION_VERSION: '1.0.0'
 
 });
