@@ -19,7 +19,7 @@ namespace SchoolWebAPI.Services
                 throw new Exception("You already registered.");
 
             var result1 = from std in entity.Students
-                          where std.Email == model.Email
+                          where std.Email == model.Email && model.Email != null && model.Email != string.Empty
                           select std;
             if (result1 != null && result1.ToList().Count > 0)
                 throw new Exception("This email is already used by someone else.");

@@ -104,3 +104,4 @@ D:\Development\SchoolWebApps\SchoolWebAPI\SchoolWebAPI\bin\Microsoft.Owin.Securi
 D:\Development\SchoolWebApps\SchoolWebAPI\SchoolWebAPI\bin\System.Web.Http.Owin.xml
 D:\Development\SchoolWebApps\SchoolWebAPI\SchoolWebAPI\obj\Release\SchoolWebAPI.dll
 D:\Development\SchoolWebApps\SchoolWebAPI\SchoolWebAPI\obj\Release\SchoolWebAPI.pdb
+D:\Development\SchoolWebApps\SchoolWebAPI\SchoolWebAPI\obj\Release\SchoolWebAPI.csprojResolveAssemblyReference.cache

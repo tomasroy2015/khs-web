@@ -8,6 +8,7 @@ var schoolApp = angular.module("schoolApp",[
                 "ngAnimate",
                 "ngSanitize",
                 "ngCookies", 
+                "blockUI",
                 "ui.bootstrap",
                 "smart-table"
               ]);
@@ -21,7 +22,7 @@ schoolApp.config(function($routeProvider,$locationProvider){
 /* Application Constants
  ======================================================*/
 schoolApp.constant("appSettings", {
-    API_BASE_URL : 'http://localhost:52780/',
+    API_BASE_URL : 'http://163.47.35.165:8085/',
     APPLICATION_VERSION: '1.0.0'
 
 });

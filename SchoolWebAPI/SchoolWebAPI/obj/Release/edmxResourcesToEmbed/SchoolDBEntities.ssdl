@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="SchoolDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Student">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="RegistrationNo" Type="nvarchar(max)" />
+    <Property Name="Name" Type="nvarchar" MaxLength="250" Nullable="false" />
+    <Property Name="Email" Type="nvarchar" MaxLength="50" />
+    <Property Name="Mobile" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Batch" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="PresentAddress" Type="nvarchar(max)" />
+    <Property Name="PermanentAddress" Type="nvarchar(max)" />
+    <Property Name="AcademicQualification" Type="nvarchar(max)" />
+    <Property Name="Grade" Type="nvarchar" MaxLength="5" />
+    <Property Name="GradePoint" Type="bigint" />
+    <Property Name="PaidAmount" Type="bigint" />
+    <Property Name="PaymentStatus" Type="bit" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="250" Nullable="false" />
+    <Property Name="Email" Type="nvarchar" MaxLength="50" />
+    <Property Name="Password" Type="nvarchar" MaxLength="50" />
+    <Property Name="Mobile" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Type" Type="int" />
+    <Property Name="Batch" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="PresentAddress" Type="nvarchar(max)" />
+    <Property Name="PermanentAddress" Type="nvarchar(max)" />
+    <Property Name="AcademicQualification" Type="nvarchar(max)" />
+    <Property Name="Grade" Type="nvarchar" MaxLength="5" />
+    <Property Name="GradePoint" Type="bigint" />
+  </EntityType>
+  <EntityContainer Name="SchoolDBModelStoreContainer">
+    <EntitySet Name="Student" EntityType="Self.Student" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

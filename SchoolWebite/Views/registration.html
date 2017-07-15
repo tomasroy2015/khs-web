@@ -30,7 +30,7 @@
         
             <div id="navbar-spy" class="collapse navbar-collapse navbar-responsive-collapse">
                  <ul class="nav navbar-nav pull-right">
-                    <li class="active">
+                    <li >
                         <a href="#" ng-click="clickForRegister('')">প্রথম পাতা </a>
                     </li>
                     <li>
@@ -38,6 +38,9 @@
                     </li>
                     <li>
                         <a href="#" ng-click="clickForRegister('contact')"><span>যোগাযোগ</span></a>
+                    </li>
+                     <li class="active">
+                        <a href="#" ng-click="clickForRegister('registration')"><span>সুবর্ণ জয়ন্তী রেজিস্ট্রেশান</span></a>
                     </li>
                 </ul>           
             </div>
@@ -93,20 +96,22 @@
     </div>
     <!-- End #carousel-section -->
 
- <section class="services-section section-global-wrapper" ng-if="registered">
-        <div class="container">
-            <div class="row">
-                <legend><center><h2><b style="color:darkgreen;">ধন্যবাদ,আপনি সফলভাবে রেজিস্ট্রেশান সম্পূর্ণ করেছেন।</b></h2></center></legend><br>
-                <label class="col-md-10 control-label" style="font-size: 20px;">রেজিস্ট্রেশান নংঃ {{registrationNo}}</label> 
-                <label class="col-md-10 control-label" style="font-size: 20px;">রেজিস্ট্রেশান ফিঃ ৫০০ টাকা </label> 
-                <label class="col-md-10 control-label" style="font-size: 20px;">আপনি রেজিস্ট্রেশান ফি বিকাশ করে (০১৯১৩৮৯৭৭৯১) এই নাম্বারে পাঠান। টাকা পাঠিয়ে একি নাম্বারে মেসেজ অপশনে গিয়ে মেসেজ করুন। </label> 
-                <label class="col-md-10 control-label" style="font-size: 20px;">মেসেজ ফরম্যাট: [Name]  [Registration No] [Batch]</label> 
-            </div>
-        </div>
-    </section>
+
     <!-- Begin #services-section -->
     <section id="services" class="services-section section-global-wrapper">
-        <div class="container">
+        <div class="container" ng-if="registered">
+            <div class="row">
+                <legend><center><h2><b style="color:darkgreen;">ধন্যবাদ,আপনি সফলভাবে রেজিস্ট্রেশান সম্পূর্ণ করেছেন।</b></h2></center></legend><br>
+                <label class="col-md-10 control-label" style="font-size: 20px;color:red;">আনুগ্রহ করে আপনার রেজিস্ট্রেশান নং টা সংরক্ষন করুন</label> 
+                <label class="col-md-10 control-label" style="font-size: 20px;">রেজিস্ট্রেশান নংঃ {{registrationNo}}</label> 
+                <label class="col-md-10 control-label" style="font-size: 20px;">রেজিস্ট্রেশান ফিঃ ৫০০ টাকা </label> 
+                <label class="col-md-10 control-label" style="font-size: 20px;">আপনি রেজিস্ট্রেশান ফি বিকাশ করে (০১৯১৩৮৯৭৭৯১) এই নাম্বারে পাঠান।</label> 
+                <label class="col-md-10 control-label" style="font-size: 20px;"> টাকা পাঠিয়ে ০১৯১৩৮৯৭৭৯১ নাম্বারে মেসেজ অপশনে গিয়ে মেসেজ করুন। </label> 
+                <label class="col-md-10 control-label" style="font-size: 20px;">মেসেজ ফরম্যাট: [Name]  [Registration No] [Batch]</label> 
+                <label class="col-md-10 control-label"><a href="#" ng-click="clickForRegister('registration')">রেজিস্ট্রেশান পেজ এ ফিরুন </a></label>
+            </div>
+        </div>
+        <div class="container" ng-if="!registered">
             
          <form class="well form-horizontal"  id="regForm">
           <fieldset>
@@ -228,6 +233,16 @@
             </div>-->
 
             <!-- Text input-->
+            <div class="form-group">
+                <label class="col-md-4 control-label">Mobile No.</label>  
+                <div class="col-md-4 inputGroupContainer">
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-earphone"></i></span>
+                    <input name="mobile" placeholder="(+880)" class="form-control" type="text" ng-model="student.Mobile" ng-class="{'invalid-input':isTriedSave && regForm.mobile.$error.required}" required>
+                    </div>
+                </div>
+            </div>
+
                <div class="form-group">
                     <label class="col-md-4 control-label">E-Mail</label>  
                         <div class="col-md-4 inputGroupContainer">
@@ -241,15 +256,7 @@
 
             <!-- Text input-->
                 
-            <div class="form-group">
-                <label class="col-md-4 control-label">Mobile No.</label>  
-                <div class="col-md-4 inputGroupContainer">
-                    <div class="input-group">
-                        <span class="input-group-addon"><i class="glyphicon glyphicon-earphone"></i></span>
-                    <input name="mobile" placeholder="(+880)" class="form-control" type="text" ng-model="student.Mobile" ng-class="{'invalid-input':isTriedSave && regForm.mobile.$error.required}" required>
-                    </div>
-                </div>
-            </div>
+            
              <div class="form-group">
                 <label class="col-md-4 control-label">Present Address</label>  
                 <div class="col-md-4 inputGroupContainer">
@@ -262,7 +269,7 @@
                 </div>
             </div>
             <div class="form-group">
-                <label class="col-md-4 control-label">Mobile No.</label>  
+                <label class="col-md-4 control-label">Permanent Address</label>  
                 <div class="col-md-4 inputGroupContainer">
                     <div class="input-group">
                         <!--<span class="input-group-addon"><i class="glyphicon glyphicon-book"></i></span>-->
