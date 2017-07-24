@@ -40,7 +40,7 @@
                         <a href="#" ng-click="clickForRegister('contact')"><span>যোগাযোগ</span></a>
                     </li>
                      <li class="active">
-                        <a href="#" ng-click="clickForRegister('registration')"><span>সুবর্ণ জয়ন্তী রেজিস্ট্রেশান</span></a>
+                        <a href="#" ng-click="clickForRegister('registration')"><span>সুবর্ণ জয়ন্তী রেজিস্ট্রেশন</span></a>
                     </li>
                 </ul>           
             </div>
@@ -101,14 +101,14 @@
     <section id="services" class="services-section section-global-wrapper">
         <div class="container" ng-if="registered">
             <div class="row">
-                <legend><center><h2><b style="color:darkgreen;">ধন্যবাদ,আপনি সফলভাবে রেজিস্ট্রেশান সম্পূর্ণ করেছেন।</b></h2></center></legend><br>
-                <label class="col-md-10 control-label" style="font-size: 20px;color:red;">আনুগ্রহ করে আপনার রেজিস্ট্রেশান নং টা সংরক্ষন করুন</label> 
-                <label class="col-md-10 control-label" style="font-size: 20px;">রেজিস্ট্রেশান নংঃ {{registrationNo}}</label> 
-                <label class="col-md-10 control-label" style="font-size: 20px;">রেজিস্ট্রেশান ফিঃ ৫০০ টাকা </label> 
-                <label class="col-md-10 control-label" style="font-size: 20px;">আপনি রেজিস্ট্রেশান ফি বিকাশ করে (০১৯১৩৮৯৭৭৯১) এই নাম্বারে পাঠান।</label> 
+                <legend><center><h2><b style="color:darkgreen;">ধন্যবাদ,আপনি সফলভাবে রেজিস্ট্রেশন সম্পূর্ণ করেছেন।</b></h2></center></legend><br>
+                <label class="col-md-10 control-label" style="font-size: 20px;color:red;">আনুগ্রহ করে আপনার রেজিস্ট্রেশন নং টা সংরক্ষন করুন</label> 
+                <label class="col-md-10 control-label" style="font-size: 20px;">রেজিস্ট্রেশন নংঃ {{registrationNo}}</label> 
+                <label class="col-md-10 control-label" style="font-size: 20px;">রেজিস্ট্রেশন ফিঃ ৫০০ টাকা </label> 
+                <label class="col-md-10 control-label" style="font-size: 20px;">আপনি রেজিস্ট্রেশন ফি বিকাশ করে (০১৯১৩৮৯৭৭৯১) এই নাম্বারে পাঠান।</label> 
                 <label class="col-md-10 control-label" style="font-size: 20px;"> টাকা পাঠিয়ে ০১৯১৩৮৯৭৭৯১ নাম্বারে মেসেজ অপশনে গিয়ে মেসেজ করুন। </label> 
                 <label class="col-md-10 control-label" style="font-size: 20px;">মেসেজ ফরম্যাট: [Name]  [Registration No] [Batch]</label> 
-                <label class="col-md-10 control-label"><a href="#" ng-click="clickForRegister('registration')">রেজিস্ট্রেশান পেজ এ ফিরুন </a></label>
+                <label class="col-md-10 control-label"><a href="#" ng-click="clickForRegister('registration')">রেজিস্ট্রেশন পেজ এ ফিরুন </a></label>
             </div>
         </div>
         <div class="container" ng-if="!registered">
@@ -286,7 +286,30 @@
           </fieldset>
          </form>
           <!--<img ng-if="isTriedSave && !loaded" style="top:15%;position:absolute;" src="assets/img/spinner.gif"/>-->
-        </div>      
+        </div> 
+        <div class="block-ui-overlay" ng-if="isTriedSave && !error">    
+            <div class="block-ui-message-container" aria-live="assertive" aria-atomic="true">
+                <div class="windows8">
+                    <div class="wBall" id="wBall_1">
+                        <div class="wInnerBall"></div>
+                        </div>
+                        <div class="wBall" id="wBall_2">
+                            <div class="wInnerBall">
+                                </div>
+                                </div>
+                                <div class="wBall" id="wBall_3">
+                                    <div class="wInnerBall"></div>
+                                    </div><div class="wBall" id="wBall_4">
+                                        <div class="wInnerBall">
+                                        </div>
+                                    </div>
+                                <div class="wBall" id="wBall_5">
+                            <div class="wInnerBall">
+                        </div>
+                        </div>
+                    </div>
+                </div>
+        </div>     
     </section>
     <!-- End #services-section -->
    
@@ -300,7 +323,7 @@
                     <p class="footer-contact">
                         কৈলাশগঞ্জ মাধ্যমিক বিদ্যালয় <br>
                         থানা:দাকোপ,জেলা:খুলনা,বাংলাদেশ <br>
-                        ই মেইল : khs@gmail.com<br>
+                        ই মেইল : kailashganjschool@gmail.com<br>
                     </p>
                 </div>
                 <div class="col-md-4">

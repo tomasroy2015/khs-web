@@ -2,6 +2,7 @@ angular.module("schoolApp").controller("schoolController", function ($scope, app
    $scope.student = this;
    $scope.isTriedSave = false;
    $scope.loaded = false;
+   $scope.error = false;
    $scope.registered = false;
    $scope.registrationNo = "";
    $scope.clickForRegister = function(view){
@@ -14,29 +15,35 @@ angular.module("schoolApp").controller("schoolController", function ($scope, app
    }
    $scope.register = function(){
        $scope.isTriedSave = true;
+       $scope.error = false;
         if (!$scope.student.Name){
             toastr.error("Please write your Name.");
             $scope.loaded = true;
+            $scope.error = true;
             return;
         }
         if (!$scope.student.Batch){
             toastr.error("Please select a Batch.");
-           $scope.loaded = true;
+            $scope.loaded = true;
+            $scope.error = true;
             return;
         }
         if (!$scope.student.Mobile){
             toastr.error("Please write your Mobile no.");
             $scope.loaded = true;
+            $scope.error = true;
             return;
         }
         if ($scope.student.Email && !validateEmail($scope.student.Email)) {
             toastr.error("You entered invalid Email.");
             $scope.loaded = true;
+            $scope.error = true;
             return;
         }
         if ($scope.student.Mobile.length < 11){
             toastr.error("You entered invalid Mobile no.");
             $scope.loaded = true;
+            $scope.error = true;
             return;
         }
       blockUI.start();
