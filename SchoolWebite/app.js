@@ -22,7 +22,8 @@ schoolApp.config(function($routeProvider,$locationProvider){
 /* Application Constants
  ======================================================*/
 schoolApp.constant("appSettings", {
-    API_BASE_URL : 'http://163.47.35.165:8085/',
+    // API_BASE_URL : 'http://163.47.35.165:8085/',
+    API_BASE_URL : 'http://localhost:52780/',
     APPLICATION_VERSION: '1.0.0'
 
 });

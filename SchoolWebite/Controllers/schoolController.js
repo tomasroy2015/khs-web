@@ -5,6 +5,7 @@ angular.module("schoolApp").controller("schoolController", function ($scope, app
    $scope.error = false;
    $scope.registered = false;
    $scope.registrationNo = "";
+   
    $scope.clickForRegister = function(view){
         $scope.registered = false;
        $location.path("/"+view);
@@ -40,7 +41,7 @@ angular.module("schoolApp").controller("schoolController", function ($scope, app
             $scope.error = true;
             return;
         }
-        if ($scope.student.Mobile.length < 11){
+        if ($scope.student.Mobile.length < 11 || $scope.student.Mobile.length > 11){
             toastr.error("You entered invalid Mobile no.");
             $scope.loaded = true;
             $scope.error = true;
@@ -61,5 +62,19 @@ angular.module("schoolApp").controller("schoolController", function ($scope, app
              $scope.loaded = true;
              $scope.registered = false;
         });
+   }
+    $scope.rowCollection = [];
+    $scope.displayColl = [];
+    $scope.currentPage = 1;
+    $scope.itemsPerPage = 10;
+
+   $scope.getAll = function(){
+    $http.get(appSettings.API_BASE_URL + "student/list").
+      then(function (response) {
+          $scope.rowCollection = response.data;
+          $scope.displayColl = [].concat($scope.rowCollection);
+        }, function (error) {
+            
+        });   
    }
 });

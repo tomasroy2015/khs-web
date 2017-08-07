@@ -34,5 +34,26 @@ namespace SchoolWebAPI.Controllers
                 return Request.CreateErrorResponse(HttpStatusCode.InternalServerError, ex.Message);
             }
         }
+        [Route("student/list")]
+        [HttpGet]
+        public HttpResponseMessage List()
+        {
+            try
+            {
+                if (this.ModelState.IsValid)
+                {
+                    var result = new StudentService().GetStudents();
+                    return Request.CreateResponse(HttpStatusCode.OK, result);
+                }
+                else
+                {
+                    return Request.CreateErrorResponse(HttpStatusCode.BadRequest, "Invalid data model");
+                }
+            }
+            catch (Exception ex)
+            {
+                return Request.CreateErrorResponse(HttpStatusCode.InternalServerError, ex.Message);
+            }
+        }
     }
 }

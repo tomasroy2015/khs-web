@@ -43,5 +43,27 @@ namespace SchoolWebAPI.Services
             
             return registrationNo;
         }
+        public List<StudentViewModel> GetStudents()
+        {
+            var entity = new SchoolDBEntities();
+            List<StudentViewModel> _students = new List<StudentViewModel>();
+           var result = from std in entity.Students
+                         select std;
+            if (result != null)
+            {
+                foreach (var s in result.ToList())
+                {
+                    var std = new StudentViewModel();
+                    std.Name = s.Name;
+                    std.Mobile = s.Mobile;
+                    std.Batch = s.Batch;
+                    std.RegistrationNo = s.RegistrationNo;
+                    std.Email = s.Email;
+                    std.PaymentStatus = s.PaymentStatus == null || s.PaymentStatus == false ? "Payment Pending" : "Payment Completed";
+                    _students.Add(std);
+                }
+            }
+            return _students;
+        }
     }
 }
